@@ -98,9 +98,9 @@ app.post('/uid', upload.single('image'), (req, res) => {
 app.get('/did', (req, res) => {
     const id = req?.query?.id;
     if (id in users) {
-        fs.unlink(users[id].img, (err)=>{
+        fs.unlink(users[id].img, (err)=>{  //사진 삭제
             console.error(err);
-            delete users[id];
+            delete users[id];  //유저 정보 삭제
             res.redirect(301, '/index.html');
         })
     } else
